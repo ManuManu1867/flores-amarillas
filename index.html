@@ -88,32 +88,6 @@ svg {
 
 
 /* =========================================
-   APARICIÓN DE IZQUIERDA A DERECHA
-========================================= */
-
-.f1  { animation-delay: 0.3s; }
-.f2  { animation-delay: 0.85s; }
-.f3  { animation-delay: 1.4s; }
-.f4  { animation-delay: 1.95s; }
-.f5  { animation-delay: 2.5s; }
-.f6  { animation-delay: 3.05s; }
-.f7  { animation-delay: 3.6s; }
-.f8  { animation-delay: 4.15s; }
-.f9  { animation-delay: 4.7s; }
-.f10 { animation-delay: 5.25s; }
-.f11 { animation-delay: 5.8s; }
-.f12 { animation-delay: 6.35s; }
-.f13 { animation-delay: 6.9s; }
-.f14 { animation-delay: 7.45s; }
-.f15 { animation-delay: 8.0s; }
-.f16 { animation-delay: 8.55s; }
-.f17 { animation-delay: 9.1s; }
-.f18 { animation-delay: 9.65s; }
-.f19 { animation-delay: 10.2s; }
-.f20 { animation-delay: 10.75s; }
-
-
-/* =========================================
    APARICIÓN DEL PAPEL
 ========================================= */
 
@@ -140,16 +114,43 @@ svg {
 
 
 /* =========================================
-   TALLOS INFERIORES
-   SINCRONIZADOS CON LAS FLORES DE ARRIBA
+   APARICIÓN DEL LAZO
 ========================================= */
 
-.tallos-abajo {
+.lazo {
+    opacity: 0;
+
+    animation:
+        aparecerLazo 1.4s
+        ease-out 1.6s
+        forwards;
+}
+
+@keyframes aparecerLazo {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================
+   APARICIÓN DE TALLOS Y HOJAS
+========================================= */
+
+.tallos-arriba,
+.tallos-abajo,
+.hojas {
     opacity: 0;
 
     animation:
         aparecerTallos 1.4s
-        ease-out 0.3s
+        ease-out 3.0s
         forwards;
 }
 
@@ -167,6 +168,33 @@ svg {
 
 
 /* =========================================
+   APARICIÓN ALTERNADA DE LAS FLORES
+   IZQUIERDA → DERECHA → CENTRO
+========================================= */
+
+.f1  { animation-delay: 4.4s; }
+.f20 { animation-delay: 4.95s; }
+.f2  { animation-delay: 5.5s; }
+.f19 { animation-delay: 6.05s; }
+.f3  { animation-delay: 6.6s; }
+.f18 { animation-delay: 7.15s; }
+.f4  { animation-delay: 7.7s; }
+.f17 { animation-delay: 8.25s; }
+.f5  { animation-delay: 8.8s; }
+.f16 { animation-delay: 9.35s; }
+.f6  { animation-delay: 9.9s; }
+.f15 { animation-delay: 10.45s; }
+.f7  { animation-delay: 11.0s; }
+.f14 { animation-delay: 11.55s; }
+.f8  { animation-delay: 12.1s; }
+.f13 { animation-delay: 12.65s; }
+.f9  { animation-delay: 13.2s; }
+.f12 { animation-delay: 13.75s; }
+.f10 { animation-delay: 14.3s; }
+.f11 { animation-delay: 15.4s; }
+
+
+/* =========================================
    REDUCCIÓN DE MOVIMIENTO
 ========================================= */
 
@@ -174,7 +202,10 @@ svg {
 
     .flor,
     .papel,
-    .tallos-abajo {
+    .lazo,
+    .tallos-arriba,
+    .tallos-abajo,
+    .hojas {
 
         animation-duration: 0.01ms !important;
         animation-delay: 0s !important;
@@ -200,121 +231,68 @@ svg {
 
 
 <!-- =================================================
-     DEFINICIONES DE FLORES, HOJAS Y FORMAS
+     DEFINICIONES
 ================================================= -->
 
 <defs>
 
 
-<!-- =================================================
-     FLOR DE 5 PÉTALOS
-================================================= -->
-
+<!-- FLOR DE 5 PÉTALOS -->
 <g id="flor5">
-
-    <ellipse
-        cx="0" cy="-62"
-        rx="38" ry="68"
-        fill="#FFD15A"/>
-
-    <ellipse
-        cx="59" cy="-19"
-        rx="38" ry="68"
-        transform="rotate(55 59 -19)"
-        fill="#FFE18A"/>
-
-    <ellipse
-        cx="36" cy="54"
-        rx="38" ry="68"
-        transform="rotate(125 36 54)"
-        fill="#FFD15A"/>
-
-    <ellipse
-        cx="-36" cy="54"
-        rx="38" ry="68"
-        transform="rotate(-125 -36 54)"
-        fill="#FFE18A"/>
-
-    <ellipse
-        cx="-59" cy="-19"
-        rx="38" ry="68"
-        transform="rotate(-55 -59 -19)"
-        fill="#FFCA4B"/>
-
-    <circle
-        cx="0" cy="0"
-        r="28"
-        fill="#F5B735"/>
-
-    <circle
-        cx="0" cy="0"
-        r="16"
-        fill="#FFE18A"/>
-
+    <ellipse cx="0" cy="-62" rx="38" ry="68" fill="#FFD15A"/>
+    <ellipse cx="59" cy="-19" rx="38" ry="68" transform="rotate(55 59 -19)" fill="#FFE18A"/>
+    <ellipse cx="36" cy="54" rx="38" ry="68" transform="rotate(125 36 54)" fill="#FFD15A"/>
+    <ellipse cx="-36" cy="54" rx="38" ry="68" transform="rotate(-125 -36 54)" fill="#FFE18A"/>
+    <ellipse cx="-59" cy="-19" rx="38" ry="68" transform="rotate(-55 -59 -19)" fill="#FFCA4B"/>
+    <circle cx="0" cy="0" r="28" fill="#F5B735"/>
+    <circle cx="0" cy="0" r="16" fill="#FFE18A"/>
 </g>
 
 
-
-<!-- =================================================
-     FLOR DE 6 PÉTALOS
-================================================= -->
-
+<!-- FLOR DE 6 PÉTALOS -->
 <g id="flor6">
-
-    <ellipse
-        cx="0" cy="-68"
-        rx="34" ry="70"
-        fill="#FFD968"/>
-
-    <ellipse
-        cx="59" cy="-34"
-        rx="34" ry="70"
-        transform="rotate(60 59 -34)"
-        fill="#FFE69A"/>
-
-    <ellipse
-        cx="59" cy="34"
-        rx="34" ry="70"
-        transform="rotate(120 59 34)"
-        fill="#FFD15A"/>
-
-    <ellipse
-        cx="0" cy="68"
-        rx="34" ry="70"
-        fill="#FFE18A"/>
-
-    <ellipse
-        cx="-59" cy="34"
-        rx="34" ry="70"
-        transform="rotate(60 -59 34)"
-        fill="#FFD15A"/>
-
-    <ellipse
-        cx="-59" cy="-34"
-        rx="34" ry="70"
-        transform="rotate(120 -59 -34)"
-        fill="#FFCA4B"/>
-
-    <circle
-        cx="0" cy="0"
-        r="26"
-        fill="#F2B432"/>
-
-    <circle
-        cx="0" cy="0"
-        r="14"
-        fill="#FFE69A"/>
-
+    <ellipse cx="0" cy="-68" rx="34" ry="70" fill="#FFD968"/>
+    <ellipse cx="59" cy="-34" rx="34" ry="70" transform="rotate(60 59 -34)" fill="#FFE69A"/>
+    <ellipse cx="59" cy="34" rx="34" ry="70" transform="rotate(120 59 34)" fill="#FFD15A"/>
+    <ellipse cx="0" cy="68" rx="34" ry="70" fill="#FFE18A"/>
+    <ellipse cx="-59" cy="34" rx="34" ry="70" transform="rotate(60 -59 34)" fill="#FFD15A"/>
+    <ellipse cx="-59" cy="-34" rx="34" ry="70" transform="rotate(120 -59 -34)" fill="#FFCA4B"/>
+    <circle cx="0" cy="0" r="26" fill="#F2B432"/>
+    <circle cx="0" cy="0" r="14" fill="#FFE69A"/>
 </g>
 
 
+<!-- FLOR DE 7 PÉTALOS -->
+<g id="flor7">
+    <ellipse cx="0" cy="-60" rx="32" ry="64" fill="#FFD15A"/>
+    <ellipse cx="47" cy="-30" rx="32" ry="64" transform="rotate(51 47 -30)" fill="#FFE18A"/>
+    <ellipse cx="54" cy="27" rx="32" ry="64" transform="rotate(103 54 27)" fill="#FFE69A"/>
+    <ellipse cx="20" cy="60" rx="32" ry="64" transform="rotate(154 20 60)" fill="#FFCA4B"/>
+    <ellipse cx="-20" cy="60" rx="32" ry="64" transform="rotate(206 -20 60)" fill="#FFD15A"/>
+    <ellipse cx="-54" cy="27" rx="32" ry="64" transform="rotate(257 -54 27)" fill="#FFE18A"/>
+    <ellipse cx="-47" cy="-30" rx="32" ry="64" transform="rotate(309 -47 -30)" fill="#FFD968"/>
+    <circle cx="0" cy="0" r="26" fill="#F2B432"/>
+    <circle cx="0" cy="0" r="14" fill="#FFE69A"/>
+</g>
 
-<!-- =================================================
-     TULIPÁN
-================================================= -->
 
+<!-- FLOR DE 8 PÉTALOS -->
+<g id="flor8">
+    <ellipse cx="0" cy="-58" rx="30" ry="62" fill="#FFE18A"/>
+    <ellipse cx="41" cy="-41" rx="30" ry="62" transform="rotate(45 41 -41)" fill="#FFD15A"/>
+    <ellipse cx="58" cy="0" rx="30" ry="62" transform="rotate(90 58 0)" fill="#FFE69A"/>
+    <ellipse cx="41" cy="41" rx="30" ry="62" transform="rotate(135 41 41)" fill="#FFD15A"/>
+    <ellipse cx="0" cy="58" rx="30" ry="62" transform="rotate(180 0 58)" fill="#FFCA4B"/>
+    <ellipse cx="-41" cy="41" rx="30" ry="62" transform="rotate(225 -41 41)" fill="#FFE18A"/>
+    <ellipse cx="-58" cy="0" rx="30" ry="62" transform="rotate(270 -58 0)" fill="#FFD15A"/>
+    <ellipse cx="-41" cy="-41" rx="30" ry="62" transform="rotate(315 -41 -41)" fill="#FFE69A"/>
+    <circle cx="0" cy="0" r="24" fill="#F5B735"/>
+    <circle cx="0" cy="0" r="13" fill="#FFE18A"/>
+</g>
+
+
+<!-- TULIPÁN -->
 <g id="tulipan">
-
     <path
         d="
         M-52 -108
@@ -325,7 +303,6 @@ svg {
         C-15 -63 -30 -84 -52 -108
         Z"
         fill="#FFD052"/>
-
     <path
         d="
         M-52 -108
@@ -334,7 +311,6 @@ svg {
         C-15 -63 -30 -84 -52 -108
         Z"
         fill="#FFE79B"/>
-
     <path
         d="
         M-20 -85
@@ -344,17 +320,11 @@ svg {
         C-5 -62 -10 -70 -20 -85
         Z"
         fill="#FFF0BE"/>
-
 </g>
 
 
-
-<!-- =================================================
-     TULIPÁN CLARO
-================================================= -->
-
+<!-- TULIPÁN CLARO -->
 <g id="tulipanClaro">
-
     <path
         d="
         M-48 -104
@@ -365,7 +335,6 @@ svg {
         C-14 -61 -28 -80 -48 -104
         Z"
         fill="#FFE18A"/>
-
     <path
         d="
         M-48 -104
@@ -374,7 +343,6 @@ svg {
         C-14 -61 -28 -80 -48 -104
         Z"
         fill="#FFF0BE"/>
-
     <path
         d="
         M-18 -82
@@ -384,235 +352,85 @@ svg {
         C-4 -60 -9 -68 -18 -82
         Z"
         fill="#FFFAE8"/>
-
 </g>
 
 
-
-<!-- =================================================
-     ROSA AMARILLA DETALLADA
-================================================= -->
-
-<g id="rosa">
-
+<!-- ROSA DE LADO -->
+<g id="rosaDeLado">
     <path
         d="
-        M-70 -25
-        C-98 -80 -45 -125 5 -88
-        C50 -122 108 -68 75 -22
-        C112 22 68 85 20 58
-        C-14 108 -88 68 -78 22
-        C-120 -2 -108 -58 -70 -25
+        M0 60
+        C-45 55 -75 20 -72 -20
+        C-70 -55 -40 -85 0 -95
+        C40 -85 70 -55 72 -20
+        C75 20 45 55 0 60
         Z"
         fill="#FFC744"/>
-
     <path
         d="
-        M-64 -12
-        C-90 -60 -40 -108 4 -76
-        C46 -108 96 -58 68 -15
-        C100 28 60 80 16 56
-        C-14 98 -80 62 -70 18
-        C-106 -4 -96 -52 -64 -12
+        M0 60
+        C-45 55 -75 20 -72 -20
+        C-70 -55 -40 -85 0 -95
+        C-25 -85 -35 -50 -32 -15
+        C-30 15 -15 45 0 60
         Z"
         fill="#FFD15A"/>
-
     <path
         d="
-        M-52 -16
-        C-74 -60 -30 -94 8 -66
-        C42 -94 82 -50 56 -12
-        C84 24 50 70 12 46
-        C-10 82 -64 54 -56 16
-        C-84 -4 -76 -44 -52 -16
+        M-8 55
+        C-38 45 -55 15 -52 -15
+        C-50 -42 -30 -62 0 -70
+        C-18 -55 -22 -30 -18 -5
+        C-14 25 -4 45 -8 55
         Z"
         fill="#FFD968"/>
-
     <path
         d="
-        M-42 -10
-        C-60 -48 -24 -76 8 -54
-        C38 -76 68 -40 46 -6
-        C70 24 42 60 10 40
-        C-8 68 -52 46 -44 12
-        C-66 -2 -60 -34 -42 -10
+        M8 55
+        C38 45 55 15 52 -15
+        C50 -42 30 -62 0 -70
+        C18 -55 22 -30 18 -5
+        C14 25 4 45 8 55
         Z"
         fill="#FFE18A"/>
-
     <path
         d="
-        M-30 -6
-        C-46 -38 -18 -58 8 -40
-        C30 -58 54 -30 34 -4
-        C54 20 30 50 6 34
-        C-10 56 -42 38 -34 12
-        C-52 -2 -48 -28 -30 -6
+        M-25 -50
+        C-30 -75 -15 -92 0 -95
+        C15 -92 30 -75 25 -50
+        C15 -62 5 -68 0 -60
+        C-5 -68 -15 -62 -25 -50
         Z"
         fill="#FFE69A"/>
-
     <path
         d="
-        M-18 -4
-        C-28 -26 -10 -38 6 -26
-        C22 -38 36 -18 20 -2
-        C34 14 16 32 2 20
-        C-10 34 -28 22 -22 6
-        C-34 -2 -32 -18 -18 -4
-        Z"
-        fill="#FFEBAA"/>
-
-    <path
-        d="
-        M-10 -2
-        C-16 -14 -6 -24 4 -16
-        C14 -8 8 4 0 6
-        C-8 8 -16 2 -10 -2
+        M-12 -55
+        C-22 -70 -8 -82 4 -74
+        C14 -68 12 -52 0 -50
+        C-8 -48 -14 -52 -12 -55
         Z"
         fill="#F5B735"/>
-
     <path
         d="
-        M-4 -1
-        C-7 -8 -2 -13 3 -8
-        C8 -4 4 2 0 3
-        C-4 4 -8 1 -4 -1
-        Z"
-        fill="#FFE18A"/>
-
-    <path
-        d="
-        M-22 -20
-        C-28 -32 -14 -42 -4 -34
-        C-12 -28 -16 -20 -22 -20
+        M-8 -70
+        C-12 -82 -2 -88 4 -82
+        C-2 -78 -6 -74 -8 -70
         Z"
         fill="#FFF0BF"
-        opacity="0.7"/>
-
+        opacity="0.75"/>
+    <path
+        d="
+        M-12 55
+        C-6 62 6 62 12 55
+        C6 60 -6 60 -12 55
+        Z"
+        fill="#E8A83A"
+        opacity="0.6"/>
 </g>
 
 
-
-<!-- =================================================
-     ROSA MEDIANA
-================================================= -->
-
-<g id="rosaMediana">
-
-    <path
-        d="
-        M-55 -20
-        C-78 -62 -35 -98 4 -70
-        C40 -98 85 -55 60 -18
-        C88 18 52 68 16 46
-        C-12 86 -70 54 -62 18
-        C-96 -2 -86 -46 -55 -20
-        Z"
-        fill="#FFC744"/>
-
-    <path
-        d="
-        M-48 -12
-        C-68 -48 -28 -78 6 -56
-        C36 -78 70 -44 48 -10
-        C74 22 44 60 12 42
-        C-8 70 -54 46 -48 14
-        C-74 -2 -66 -36 -48 -12
-        Z"
-        fill="#FFD15A"/>
-
-    <path
-        d="
-        M-36 -8
-        C-52 -36 -20 -56 6 -40
-        C28 -56 52 -32 34 -6
-        C54 18 32 46 8 32
-        C-8 52 -38 36 -32 12
-        C-50 -2 -46 -26 -36 -8
-        Z"
-        fill="#FFD968"/>
-
-    <path
-        d="
-        M-24 -6
-        C-36 -26 -12 -42 4 -30
-        C20 -42 38 -22 22 -4
-        C38 12 22 34 6 22
-        C-6 36 -26 24 -22 8
-        C-36 -2 -32 -18 -24 -6
-        Z"
-        fill="#FFE69A"/>
-
-    <path
-        d="
-        M-14 -4
-        C-22 -16 -6 -26 4 -18
-        C16 -10 10 4 0 6
-        C-10 8 -18 2 -14 -4
-        Z"
-        fill="#FFEBAA"/>
-
-    <path
-        d="
-        M-6 -2
-        C-10 -8 -4 -14 2 -9
-        C8 -4 4 2 0 3
-        C-4 4 -8 1 -6 -2
-        Z"
-        fill="#F5B735"/>
-
-</g>
-
-
-
-<!-- =================================================
-     FLOR DE 8 PÉTALOS
-================================================= -->
-
-<g id="flor8">
-
-    <ellipse cx="0" cy="-58" rx="30" ry="62" fill="#FFE18A"/>
-    <ellipse cx="41" cy="-41" rx="30" ry="62" transform="rotate(45 41 -41)" fill="#FFD15A"/>
-    <ellipse cx="58" cy="0" rx="30" ry="62" transform="rotate(90 58 0)" fill="#FFE69A"/>
-    <ellipse cx="41" cy="41" rx="30" ry="62" transform="rotate(135 41 41)" fill="#FFD15A"/>
-    <ellipse cx="0" cy="58" rx="30" ry="62" transform="rotate(180 0 58)" fill="#FFCA4B"/>
-    <ellipse cx="-41" cy="41" rx="30" ry="62" transform="rotate(225 -41 41)" fill="#FFE18A"/>
-    <ellipse cx="-58" cy="0" rx="30" ry="62" transform="rotate(270 -58 0)" fill="#FFD15A"/>
-    <ellipse cx="-41" cy="-41" rx="30" ry="62" transform="rotate(315 -41 -41)" fill="#FFE69A"/>
-
-    <circle cx="0" cy="0" r="24" fill="#F5B735"/>
-    <circle cx="0" cy="0" r="13" fill="#FFE18A"/>
-
-</g>
-
-
-
-<!-- =================================================
-     FLOR DE 7 PÉTALOS
-================================================= -->
-
-<g id="flor7">
-
-    <ellipse cx="0" cy="-60" rx="32" ry="64" fill="#FFD15A"/>
-    <ellipse cx="47" cy="-30" rx="32" ry="64" transform="rotate(51 47 -30)" fill="#FFE18A"/>
-    <ellipse cx="54" cy="27" rx="32" ry="64" transform="rotate(103 54 27)" fill="#FFE69A"/>
-    <ellipse cx="20" cy="60" rx="32" ry="64" transform="rotate(154 20 60)" fill="#FFCA4B"/>
-    <ellipse cx="-20" cy="60" rx="32" ry="64" transform="rotate(206 -20 60)" fill="#FFD15A"/>
-    <ellipse cx="-54" cy="27" rx="32" ry="64" transform="rotate(257 -54 27)" fill="#FFE18A"/>
-    <ellipse cx="-47" cy="-30" rx="32" ry="64" transform="rotate(309 -47 -30)" fill="#FFD968"/>
-
-    <circle cx="0" cy="0" r="26" fill="#F2B432"/>
-    <circle cx="0" cy="0" r="14" fill="#FFE69A"/>
-
-</g>
-
-
-
-<!-- =================================================
-     HOJA VERDE GRANDE
-================================================= -->
-
+<!-- HOJA VERDE GRANDE -->
 <g id="hoja">
-
     <path
         d="
         M0 0
@@ -620,7 +438,6 @@ svg {
         C-42 -132 -2 -78 0 0
         Z"
         fill="#3FB82A"/>
-
     <path
         d="
         M0 0
@@ -628,17 +445,11 @@ svg {
         C-25 -95 -5 -55 0 0
         Z"
         fill="#269B20"/>
-
 </g>
 
 
-
-<!-- =================================================
-     HOJA MEDIANA
-================================================= -->
-
+<!-- HOJA MEDIANA -->
 <g id="hojaMediana">
-
     <path
         d="
         M0 0
@@ -646,7 +457,6 @@ svg {
         C-32 -105 -2 -62 0 0
         Z"
         fill="#38A923"/>
-
     <path
         d="
         M0 0
@@ -654,17 +464,11 @@ svg {
         C-20 -75 -4 -45 0 0
         Z"
         fill="#2A9E22"/>
-
 </g>
 
 
-
-<!-- =================================================
-     HOJA PEQUEÑA
-================================================= -->
-
+<!-- HOJA PEQUEÑA -->
 <g id="hojaPequena">
-
     <path
         d="
         M0 0
@@ -672,26 +476,6 @@ svg {
         C-29 -92 -2 -54 0 0
         Z"
         fill="#38A923"/>
-
-</g>
-
-
-
-<!-- =================================================
-     FLOR PEQUEÑA DE RELLENO
-================================================= -->
-
-<g id="florPequena">
-
-    <ellipse cx="0" cy="-38" rx="22" ry="40" fill="#FFE18A"/>
-    <ellipse cx="34" cy="-12" rx="22" ry="40" transform="rotate(55 34 -12)" fill="#FFD15A"/>
-    <ellipse cx="21" cy="32" rx="22" ry="40" transform="rotate(125 21 32)" fill="#FFE69A"/>
-    <ellipse cx="-21" cy="32" rx="22" ry="40" transform="rotate(-125 -21 32)" fill="#FFD15A"/>
-    <ellipse cx="-34" cy="-12" rx="22" ry="40" transform="rotate(-55 -34 -12)" fill="#FFCA4B"/>
-
-    <circle cx="0" cy="0" r="17" fill="#F5B735"/>
-    <circle cx="0" cy="0" r="9" fill="#FFE18A"/>
-
 </g>
 
 
@@ -701,201 +485,265 @@ svg {
 
 <!-- =================================================
      TALLOS SUPERIORES
-     BASES REPARTIDAS CADA 30px (de 255 a 825)
-     ABANICO ±42° ALINEADO CON EL PAPEL
 ================================================= -->
 
 <g
+    class="tallos-arriba"
     fill="none"
     stroke="#40D900"
     stroke-width="12"
     stroke-linecap="butt">
 
-    <!-- Tallo 1 -->
-    <path d="M255 560 L255 220" transform="rotate(-42.00 255 560)"/>
-
-    <!-- Tallo 2 -->
-    <path d="M285 560 L285 325" transform="rotate(-37.58 285 560)"/>
-
-    <!-- Tallo 3 -->
-    <path d="M315 560 L315 210" transform="rotate(-33.16 315 560)"/>
-
-    <!-- Tallo 4 -->
-    <path d="M345 560 L345 130" transform="rotate(-28.74 345 560)"/>
-
-    <!-- Tallo 5 -->
-    <path d="M375 560 L375 300" transform="rotate(-24.32 375 560)"/>
-
-    <!-- Tallo 6 -->
-    <path d="M405 560 L405 210" transform="rotate(-19.89 405 560)"/>
-
-    <!-- Tallo 7 -->
-    <path d="M435 560 L435 330" transform="rotate(-15.47 435 560)"/>
-
-    <!-- Tallo 8 -->
-    <path d="M465 560 L465 195" transform="rotate(-11.05 465 560)"/>
-
-    <!-- Tallo 9 -->
-    <path d="M495 560 L495 290" transform="rotate(-6.63 495 560)"/>
-
-    <!-- Tallo 10 -->
-    <path d="M525 560 L525 210" transform="rotate(-2.21 525 560)"/>
-
-    <!-- Tallo 11 -->
-    <path d="M555 560 L555 330" transform="rotate(2.21 555 560)"/>
-
-    <!-- Tallo 12 -->
-    <path d="M585 560 L585 240" transform="rotate(6.63 585 560)"/>
-
-    <!-- Tallo 13 -->
-    <path d="M615 560 L615 375" transform="rotate(11.05 615 560)"/>
-
-    <!-- Tallo 14 -->
-    <path d="M645 560 L645 395" transform="rotate(15.47 645 560)"/>
-
-    <!-- Tallo 15 -->
-    <path d="M675 560 L675 415" transform="rotate(19.89 675 560)"/>
-
-    <!-- Tallo 16 -->
-    <path d="M705 560 L705 385" transform="rotate(24.32 705 560)"/>
-
-    <!-- Tallo 17 -->
-    <path d="M735 560 L735 385" transform="rotate(28.74 735 560)"/>
-
-    <!-- Tallo 18 -->
-    <path d="M765 560 L765 410" transform="rotate(33.16 765 560)"/>
-
-    <!-- Tallo 19 -->
-    <path d="M795 560 L795 440" transform="rotate(37.58 795 560)"/>
-
-    <!-- Tallo 20 -->
-    <path d="M825 560 L825 435" transform="rotate(42.00 825 560)"/>
+    <path d="M255 560 L255 145" transform="rotate(-42.00 255 560)"/>
+    <path d="M285 560 L285 380" transform="rotate(-37.58 285 560)"/>
+    <path d="M315 560 L315 250" transform="rotate(-33.16 315 560)"/>
+    <path d="M345 560 L345 440" transform="rotate(-28.74 345 560)"/>
+    <path d="M375 560 L375 130" transform="rotate(-24.32 375 560)"/>
+    <path d="M405 560 L405 380" transform="rotate(-19.89 405 560)"/>
+    <path d="M435 560 L435 250" transform="rotate(-15.47 435 560)"/>
+    <path d="M465 560 L465 440" transform="rotate(-11.05 465 560)"/>
+    <path d="M495 560 L495 130" transform="rotate(-6.63 495 560)"/>
+    <path d="M525 560 L525 380" transform="rotate(-2.21 525 560)"/>
+    <path d="M555 560 L555 250" transform="rotate(2.21 555 560)"/>
+    <path d="M585 560 L585 440" transform="rotate(6.63 585 560)"/>
+    <path d="M615 560 L615 130" transform="rotate(11.05 615 560)"/>
+    <path d="M645 560 L645 380" transform="rotate(15.47 645 560)"/>
+    <path d="M675 560 L675 250" transform="rotate(19.89 675 560)"/>
+    <path d="M705 560 L705 440" transform="rotate(24.32 705 560)"/>
+    <path d="M735 560 L735 130" transform="rotate(28.74 735 560)"/>
+    <path d="M765 560 L765 380" transform="rotate(33.16 765 560)"/>
+    <path d="M795 560 L795 250" transform="rotate(37.58 795 560)"/>
+    <path d="M825 560 L825 130" transform="rotate(42.00 825 560)"/>
 
 </g>
+
+
+
+<!-- =================================================
+     HOJAS SUPERIORES
+================================================= -->
+
+<g class="hojas">
+
+    <use href="#hoja"
+         transform="translate(170 500) rotate(-25) scale(0.9)"/>
+
+    <use href="#hojaMediana"
+         transform="translate(260 490) rotate(28) scale(0.85)"/>
+
+    <use href="#hoja"
+         transform="translate(340 505) rotate(-32) scale(0.95)"/>
+
+    <use href="#hojaPequena"
+         transform="translate(420 485) rotate(22) scale(0.9)"/>
+
+    <use href="#hojaMediana"
+         transform="translate(500 500) rotate(-28) scale(0.85)"/>
+
+    <use href="#hojaPequena"
+         transform="translate(580 490) rotate(26) scale(0.9)"/>
+
+    <use href="#hoja"
+         transform="translate(660 505) rotate(-24) scale(0.9)"/>
+
+    <use href="#hojaMediana"
+         transform="translate(740 485) rotate(30) scale(0.85)"/>
+
+    <use href="#hoja"
+         transform="translate(820 500) rotate(-26) scale(0.9)"/>
+
+    <use href="#hojaPequena"
+         transform="translate(900 490) rotate(24) scale(0.85)"/>
+
+    <use href="#hojaMediana"
+         transform="translate(970 505) rotate(-22) scale(0.9)"/>
+
+</g>
+
 
 
 <!-- =================================================
      FLORES SUPERIORES
+
+     ORDEN DE CAPAS (de atrás hacia adelante):
+       1. Flores de tallos LARGOS (y=130 / y=145)
+       2. Flores de tallos MEDIANOS (y=250)
+       3. Flores de tallos CORTOS (y=380)
+       4. Flores de tallos MUY CORTOS (y=440) → PRIMER PLANO
+
+     Tallos cortos / muy cortos (van DELANTE):
+       #2  → y=380 (corto)
+       #4  → y=440 (muy corto)
+       #6  → y=380 (corto)
+       #8  → y=440 (muy corto)
+       #10 → y=380 (corto)
+       #12 → y=440 (muy corto)
+       #14 → y=380 (corto)
+       #16 → y=440 (muy corto)
+       #18 → y=380 (corto)
+       #20 → y=440 (muy corto)
 ================================================= -->
 
 
-<g transform="translate(100 300)">
+<!-- ============================================
+     CAPA 1 — FLORES DE TALLOS LARGOS (fondo)
+============================================ -->
+
+<!-- #1 — Tulipán (tallo y=145, el más largo) -->
+<g transform="translate(-33 241) rotate(-42.00)">
     <g class="flor f1">
-        <use href="#tulipan" transform="scale(1.0)"/>
+        <use href="#tulipan" transform="scale(1.00)"/>
     </g>
 </g>
 
-<g transform="translate(200 370)">
-    <g class="flor f2">
-        <use href="#flor5" transform="scale(0.9)"/>
+<!-- #5 — Flor de 6 pétalos (tallo y=130, largo) -->
+<g transform="translate(198 168) rotate(-24.32)">
+    <g class="flor f5">
+        <use href="#flor6" transform="scale(0.90)"/>
     </g>
 </g>
 
-<g transform="translate(290 260)">
-    <g class="flor f3">
-        <use href="#rosa" transform="scale(1.0)"/>
+<!-- #9 — Tulipán (tallo y=130, largo) -->
+<g transform="translate(446 133) rotate(-6.63)">
+    <g class="flor f9">
+        <use href="#tulipan" transform="scale(0.95)"/>
     </g>
 </g>
 
-<g transform="translate(380 180)">
-    <g class="flor f4">
+<!-- #13 — Tulipán claro (tallo y=130, largo) -->
+<g transform="translate(698 138) rotate(11.05)">
+    <g class="flor f13">
         <use href="#tulipanClaro" transform="scale(1.05)"/>
     </g>
 </g>
 
-<g transform="translate(460 320)">
-    <g class="flor f5">
-        <use href="#flor6" transform="scale(0.9)"/>
-    </g>
-</g>
-
-<g transform="translate(530 230)">
-    <g class="flor f6">
-        <use href="#rosaMediana" transform="scale(1.05)"/>
-    </g>
-</g>
-
-<g transform="translate(600 340)">
-    <g class="flor f7">
-        <use href="#flor8" transform="scale(0.9)"/>
-    </g>
-</g>
-
-<g transform="translate(670 200)">
-    <g class="flor f8">
-        <use href="#tulipan" transform="scale(1.0)"/>
-    </g>
-</g>
-
-<g transform="translate(740 290)">
-    <g class="flor f9">
-        <use href="#rosa" transform="scale(0.95)"/>
-    </g>
-</g>
-
-<g transform="translate(810 210)">
-    <g class="flor f10">
-        <use href="#flor7" transform="scale(0.95)"/>
-    </g>
-</g>
-
-<g transform="translate(880 330)">
-    <g class="flor f11">
-        <use href="#flor5" transform="scale(0.88)"/>
-    </g>
-</g>
-
-<g transform="translate(950 240)">
-    <g class="flor f12">
-        <use href="#tulipanClaro" transform="scale(0.95)"/>
-    </g>
-</g>
-
-<g transform="translate(1020 380)">
-    <g class="flor f13">
-        <use href="#flor6" transform="scale(0.85)"/>
-    </g>
-</g>
-
-<g transform="translate(160 430)">
-    <g class="flor f14">
-        <use href="#florPequena" transform="scale(0.8)"/>
-    </g>
-</g>
-
-<g transform="translate(500 420)">
-    <g class="flor f15">
-        <use href="#flor8" transform="scale(0.8)"/>
-    </g>
-</g>
-
-<g transform="translate(350 400)">
-    <g class="flor f16">
-        <use href="#florPequena" transform="scale(0.75)"/>
-    </g>
-</g>
-
-<g transform="translate(700 390)">
+<!-- #17 — Flor de 8 pétalos (tallo y=130, largo) -->
+<g transform="translate(942 183) rotate(28.74)">
     <g class="flor f17">
-        <use href="#flor7" transform="scale(0.8)"/>
+        <use href="#flor8" transform="scale(0.92)"/>
     </g>
 </g>
 
-<g transform="translate(850 420)">
-    <g class="flor f18">
-        <use href="#florPequena" transform="scale(0.78)"/>
+
+
+<!-- ============================================
+     CAPA 2 — FLORES DE TALLOS MEDIANOS
+============================================ -->
+
+<!-- #3 — Flor de 5 pétalos (tallo y=250, mediano) -->
+<g transform="translate(145 300) rotate(-33.16)">
+    <g class="flor f3">
+        <use href="#flor5" transform="scale(0.95)"/>
     </g>
 </g>
 
-<g transform="translate(440 450)">
+<!-- #7 — Tulipán claro (tallo y=250, mediano) -->
+<g transform="translate(352 261) rotate(-15.47)">
+    <g class="flor f7">
+        <use href="#tulipanClaro" transform="scale(1.00)"/>
+    </g>
+</g>
+
+<!-- #11 — Flor de 7 pétalos (tallo y=250, mediano, centro) -->
+<g transform="translate(567 250) rotate(2.21)">
+    <g class="flor f11">
+        <use href="#flor7" transform="scale(1.00)"/>
+    </g>
+</g>
+
+<!-- #15 — Flor de 7 pétalos (tallo y=250, mediano) -->
+<g transform="translate(780 269) rotate(19.89)">
+    <g class="flor f15">
+        <use href="#flor7" transform="scale(0.90)"/>
+    </g>
+</g>
+
+<!-- #19 — Flor de 5 pétalos (tallo y=250, mediano) -->
+<g transform="translate(984 314) rotate(37.58)">
     <g class="flor f19">
-        <use href="#flor5" transform="scale(0.75)"/>
+        <use href="#flor5" transform="scale(0.95)"/>
     </g>
 </g>
 
-<g transform="translate(780 440)">
+
+
+<!-- ============================================
+     CAPA 3 — FLORES DE TALLOS CORTOS
+============================================ -->
+
+<!-- #2 — Rosa de lado (tallo y=380, corto) -->
+<g transform="translate(175 417) rotate(-37.58)">
+    <g class="flor f2">
+        <use href="#rosaDeLado" transform="scale(0.90)"/>
+    </g>
+</g>
+
+<!-- #6 — Flor de 6 pétalos (tallo y=380, corto) -->
+<g transform="translate(344 391) rotate(-19.89)">
+    <g class="flor f6">
+        <use href="#flor6" transform="scale(1.00)"/>
+    </g>
+</g>
+
+<!-- #10 — Rosa de lado (tallo y=380, corto) -->
+<g transform="translate(518 380) rotate(-2.21)">
+    <g class="flor f10">
+        <use href="#rosaDeLado" transform="scale(1.05)"/>
+    </g>
+</g>
+
+<!-- #14 — Flor de 6 pétalos (tallo y=380, corto) -->
+<g transform="translate(693 386) rotate(15.47)">
+    <g class="flor f14">
+        <use href="#flor6" transform="scale(1.00)"/>
+    </g>
+</g>
+
+<!-- #18 — Tulipán (tallo y=380, corto) -->
+<g transform="translate(863 409) rotate(33.16)">
+    <g class="flor f18">
+        <use href="#tulipan" transform="scale(1.00)"/>
+    </g>
+</g>
+
+
+
+<!-- ============================================
+     CAPA 4 — FLORES DE TALLOS MUY CORTOS (PRIMER PLANO)
+============================================ -->
+
+<!-- #4 — Tulipán (tallo y=440, muy corto) -->
+<g transform="translate(287 455) rotate(-28.74)">
+    <g class="flor f4">
+        <use href="#tulipan" transform="scale(1.05)"/>
+    </g>
+</g>
+
+<!-- #8 — Flor de 8 pétalos (tallo y=440, muy corto) -->
+<g transform="translate(442 442) rotate(-11.05)">
+    <g class="flor f8">
+        <use href="#flor8" transform="scale(0.88)"/>
+    </g>
+</g>
+
+<!-- #12 — Flor de 5 pétalos (tallo y=440, muy corto) -->
+<g transform="translate(599 441) rotate(6.63)">
+    <g class="flor f12">
+        <use href="#flor5" transform="scale(0.90)"/>
+    </g>
+</g>
+
+<!-- #16 — Rosa de lado (tallo y=440, muy corto) -->
+<g transform="translate(754 451) rotate(24.32)">
+    <g class="flor f16">
+        <use href="#rosaDeLado" transform="scale(0.95)"/>
+    </g>
+</g>
+
+<!-- #20 — Flor de 7 pétalos (tallo y=440, muy corto) -->
+<g transform="translate(1113 241) rotate(42.00)">
     <g class="flor f20">
-        <use href="#flor6" transform="scale(0.78)"/>
+        <use href="#flor7" transform="scale(0.90)"/>
     </g>
 </g>
 
@@ -903,7 +751,6 @@ svg {
 
 <!-- =================================================
      TALLOS INFERIORES
-     BAJADOS 10px Y SINCRONIZADOS CON LAS FLORES
 ================================================= -->
 
 <g
@@ -914,19 +761,12 @@ svg {
     stroke-linecap="butt">
 
     <path d="M430 1180 L397 1247"/>
-
     <path d="M461 1180 L437 1251"/>
-
     <path d="M492 1180 L477 1254"/>
-
     <path d="M523 1180 L518 1255"/>
-
     <path d="M554 1180 L559 1255"/>
-
     <path d="M585 1180 L600 1254"/>
-
     <path d="M616 1180 L640 1251"/>
-
     <path d="M647 1180 L680 1247"/>
 
 </g>
@@ -971,123 +811,81 @@ svg {
 
 <!-- =================================================
      LAZO AMARILLO COMPLETO
+     Subido 10px
 ================================================= -->
 
-<g class="papel">
-
-
-    <!-- Lazada izquierda -->
+<g class="lazo">
 
     <path
         d="
-        M530 950
-        C470 890 380 900 360 945
-        C340 990 410 1040 520 985
+        M530 940
+        C470 880 380 890 360 935
+        C340 980 410 1030 520 975
         Z"
         fill="#FFD15A"/>
 
-
-    <!-- Luz lazada izquierda -->
-
     <path
         d="
-        M515 950
-        C475 915 420 920 408 948
-        C398 975 445 1000 510 975
+        M515 940
+        C475 905 420 910 408 938
+        C398 965 445 990 510 965
         Z"
         fill="#FFE69A"/>
 
-
-
-    <!-- Lazada derecha -->
-
     <path
         d="
-        M550 950
-        C610 890 700 900 720 945
-        C740 990 670 1040 560 985
+        M550 940
+        C610 880 700 890 720 935
+        C740 980 670 1030 560 975
         Z"
         fill="#FFD15A"/>
 
-
-    <!-- Luz lazada derecha -->
-
     <path
         d="
-        M565 950
-        C605 915 660 920 672 948
-        C682 975 635 1000 570 975
+        M565 940
+        C605 905 660 910 672 938
+        C682 965 635 990 570 965
         Z"
         fill="#FFE69A"/>
 
-
-
-    <!-- Centro del lazo -->
-
-    <circle
-        cx="540"
-        cy="965"
-        r="35"
-        fill="#F4BA35"/>
-
-    <circle
-        cx="540"
-        cy="965"
-        r="24"
-        fill="#FFD968"/>
-
-
-
-    <!-- Cinta izquierda -->
+    <circle cx="540" cy="955" r="35" fill="#F4BA35"/>
+    <circle cx="540" cy="955" r="24" fill="#FFD968"/>
 
     <path
         d="
-        M515 990
-        L465 1140
-        L520 1080
-        L540 985
+        M515 980
+        L465 1130
+        L520 1070
+        L540 975
         Z"
         fill="#FFD052"/>
 
-
-
-    <!-- Cinta derecha -->
-
     <path
         d="
-        M565 990
-        L615 1140
-        L560 1080
-        L540 985
+        M565 980
+        L615 1130
+        L560 1070
+        L540 975
         Z"
         fill="#FFD568"/>
 
-
-
-    <!-- Detalle luz cinta izquierda -->
-
     <path
         d="
-        M520 1000
-        L485 1110
-        L510 1075
-        L530 995
+        M520 990
+        L485 1100
+        L510 1065
+        L530 985
         Z"
         fill="#FFE69A"/>
 
-
-
-    <!-- Detalle luz cinta derecha -->
-
     <path
         d="
-        M560 1000
-        L595 1110
-        L570 1075
-        L550 995
+        M560 990
+        L595 1100
+        L570 1065
+        L550 985
         Z"
         fill="#FFE69A"/>
-
 
 </g>
 
